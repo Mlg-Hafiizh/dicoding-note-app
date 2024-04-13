@@ -17,13 +17,39 @@ header {
   justify-content: center;
   padding: 16px;
 }
+
 header h1 {
   flex: 1 1;
 }
-header .navigation ul li {
+
+.navigation ul {
+  display: flex;
+  align-items: center;
+}
+
+.navigation ul li {
   display: inline-block;
-  font-size: 24px;
-  margin: 0 8px;
+  padding: 0px 10px;
+}
+
+.navigation ul li a {
+  font-size: 28px;
+  color: black;
+}
+
+.navigation ul li .btn-logout {
+  margin-top: -5px;
+}
+
+.navigation ul li button {
+  background-color: transparent;
+  font-family: 'Inter', sans-serif;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .search-bar {
@@ -219,4 +245,32 @@ header .navigation ul li {
   margin-top: 4px;
 }
 
-
+.login-page h2, .register-page h2 {
+  font-weight: normal;
+}
+ 
+.login-input, .register-input, .contact-input {
+  margin-top: 16px;
+}
+ 
+.login-input input, .register-input input, .contact-input input {
+  display: block;
+  padding: 16px;
+  width: 100%;
+  margin: 8px 0;
+  font-size: 24px;
+  background-color: transparent;
+  border: 2px dashed black;
+  border-radius: 8px;
+}
+ 
+.login-input button, .register-input button, .contact-input button {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-size: 24px;
+  background-color: tan;
+  border: 2px dashed black;
+  border-radius: 8px;
+  margin: 16px 0;
+}
