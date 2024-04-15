@@ -37,10 +37,12 @@ function NoteItemBody({ id, title, body, createdAt }) {
  return (
   <div className="note-container">
     <div className="note-item__content">
-      <h2 className="note-item__title">
-        <Link to={`/detail/${id}`} className="no-decoration">{overFlowText({ description: title, maxWords: 3 })}</Link>
-      </h2>
-     <p className="note-item__createdAt">{formatDate(createdAt)}</p>
+      <div className="note-item__title">
+        <h2 className="note-item__title__desc">
+          <b><Link to={`/detail/${id}`} className="no-decoration">{overFlowText({ description: title, maxWords: 3 })}</Link></b>
+          <p className="note-item__createdAt">{formatDate(createdAt)}</p>
+        </h2>
+      </div>
      <p className="note-item__description">{overFlowText({ description: body, maxWords: 28 })}</p>
     </div>
   </div>

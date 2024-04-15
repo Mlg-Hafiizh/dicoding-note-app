@@ -35,10 +35,12 @@ header h1 {
 .navigation ul li a {
   font-size: 28px;
   color: black;
+  text-decoration: none;
+  margin-bottom: 2px;
 }
 
 .navigation ul li .btn-logout {
-  margin-top: -5px;
+  margin-top: -3px;
 }
 
 .navigation ul li button {
@@ -62,6 +64,7 @@ header h1 {
   margin: 16px 0;
   padding: 8px;
   width: 100%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 .search-bar ::-webkit-input-placeholder {
   color: #c7c7c7;
@@ -76,7 +79,6 @@ header h1 {
   max-width: 80%;
   margin: 0 auto;
   padding: 16px;
-  
 }
 
 .note-app  h1 {
@@ -92,22 +94,28 @@ header h1 {
 
 .note-item {
   display: inline-block;
-  margin: 24px 1%;
+  margin: 20px 20px 20px 0px;
   border: 1px solid black;
   border-radius: 8px;
   width: 23%; 
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
 }
 
 .note-item__content {
-  margin-left: 8px;
-  padding-left: 8px;
-  min-height: 250px;
-  padding: 10px;
+  min-height: 180px;
+  border-bottom: 1px solid black;
 }
 
 .note-item__title {
-  padding: 4px 0;
-  font-size: 22px;
+  border-radius: 6px 6px 0px 0px;
+  font-size: 16px;
+  background-color: #45a049;
+  height: 60px;
+}
+
+.note-item__title .note-item__title__desc {
+  color: white;
+  padding: 10px 10px 0px 10px;
 }
 
 .no-decoration {
@@ -116,11 +124,12 @@ header h1 {
 }
 
 .note-item__createdAt {
-  padding: 4px 0;
-  font-size: small;
+  font-size: 10px;
+  color: white;
 }
 
 .note-item__description {
+  padding: 0px 8px;
   margin-top: 5px;
   font-weight: lighter;
   text-align: justify;
@@ -130,38 +139,28 @@ header h1 {
 .note-item__action {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 50%;
+  margin-left: 48%;
 }
 
 .note-item__archieve,
 .note-item__delete {
   background-color: transparent;
   border: 0;
-  border-top: 1px solid black;
-  cursor: pointer;
   display: block;
   font-weight: 700;
   padding: 8px 0;
   width: 100%;
+  cursor: pointer;
+  color: black;
 }
 
-.note-item__delete {
-  border-right: 1px solid black;
-  border-bottom-left-radius: 8px;
-  background-color: #8CB9BD; /* A bright shade of red */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+.note-item__delete svg {
+  color: red;
 }
 
-.note-item__archieve {
-  border-bottom-right-radius: 8px;
-  background-color: #ECB159; /* A medium shade of gray */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+.note-item__archieve svg {
+  color: orange;
 }
 
 .note-item__create {
@@ -185,7 +184,7 @@ header h1 {
   margin: 0 auto;
   margin-bottom: 32px;
   text-align: center;
-  width: 40%; /* Set the width to 80% */
+  width: 40%; 
   align-items: center;
   font-size: 22px;
 }
@@ -202,7 +201,7 @@ header h1 {
   margin: 0 auto;
   margin-bottom: 32px;
   text-align: center;
-  width: 80%; /* Set the width to 80% */
+  width: 80%; 
   display: flex;
   align-items: center;
   font-size: 22px;
@@ -212,9 +211,9 @@ header h1 {
   border: 1px solid black;
   padding: 8px;
   font-family: 'Inter', sans-serif;
-  text-align: center; /* Center text within the input */
-  width: 80%; /* Adjust the width to your preference */
-  margin: auto; /* Center the input horizontally */
+  text-align: center; 
+  width: 80%; 
+  margin: auto; 
 }
 
 .note-input input {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FiArchive } from 'react-icons/fi';
  
 function ArchieveButton({ id, isArchived, onArchieve }) {
   return (
@@ -7,7 +8,7 @@ function ArchieveButton({ id, isArchived, onArchieve }) {
       className='note-item__archieve'
       onClick={() => onArchieve(id)}
     >
-      {isArchived ? 'Pindahkan' : 'Arsipkan'}
+      <FiArchive /> {isArchived ? 'Pindahkan' : 'Arsipkan'}
     </button>
   );
 }
