@@ -142,8 +142,8 @@ header h1 {
 .note-item__action {
   display: flex;
   justify-content: space-between;
-  width: 50%;
-  margin-left: 48%;
+  width: 51%;
+  margin-left: 45%;
 }
 
 .note-item__detail {
