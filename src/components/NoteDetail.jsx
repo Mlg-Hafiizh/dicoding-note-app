@@ -20,8 +20,10 @@ function formatDate(inputDate) {
 function NoteDetail({ title, body, createdAt }) {
   return (
     <div className="note-item__detail">
-      <h2 className="note-item__title">{title}</h2>
-      <p className="note-item__createdAt">{formatDate(createdAt)}</p>
+      <h2 className="note-item__title">
+        {title}
+        <p className="note-item__createdAt">{formatDate(createdAt)}</p>
+      </h2>
       <p className="note-item__description">{body}</p>
     </div>
   );
