@@ -272,16 +272,17 @@ header h1 {
  
 .login-input, .register-input, .contact-input {
   margin-top: 16px;
+  color: var(--on-background-grey);
 }
  
 .login-input input, .register-input input, .contact-input input {
   display: block;
+  color: var(--on-background-grey);
   padding: 16px;
   width: 100%;
   margin: 8px 0;
   font-size: 24px;
   background-color: transparent;
-  border: 2px dashed black;
   border-radius: 8px;
 }
  

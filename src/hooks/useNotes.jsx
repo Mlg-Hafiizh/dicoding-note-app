@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { getActiveNotes, getArchivedNotes, deleteNote, archiveNote, unarchiveNote } from "../utils/api"
+import { useState, useEffect } from "react";
+import { getActiveNotes, getArchivedNotes, deleteNote, archiveNote, unarchiveNote } from "../utils/api";
 
 export default function useNotes(type = "active") {
   const [notes, setNotes] = useState([])

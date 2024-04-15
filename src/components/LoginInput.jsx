@@ -1,58 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useContext } from "react";
+import { login } from "../utils/api";
+import { AuthedUserContext } from "../contexts/AuthedUserContext";
+import useInput from "../hooks/useInput";
  
-class LoginInput extends React.Component {
-  constructor(props) {
-    super(props);
- 
-    this.state = {
-      email: '',
-      password: '',
-    };
- 
-    this.onEmailChangeHandler = this.onEmailChangeHandler.bind(this);
-    this.onPasswordChangeHandler = this.onPasswordChangeHandler.bind(this);
-    this.onSubmitHandler = this.onSubmitHandler.bind(this);
-  }
- 
-  onEmailChangeHandler(event) {
-    this.setState(() => {
-      return {
-        email: event.target.value
+function LoginInput() {
+  const { setUserLogged } = useContext(AuthedUserContext);
+
+  const [email, onEmailChangeHandler] = useInput("")
+  const [password, onPasswordChangeHandler] = useInput("")
+  
+  const onSubmitHandler = async (event) => {
+    event.preventDefault()
+
+    try {
+      const { error, data } = await login({ email, password });
+
+      if (!error) {
+        setUserLogged(data);
+      } else {
+        console.error("Login failed:", error.message);
+        // Handle error (e.g., show error message to the user)
       }
-    })
+    } catch (error) {
+      console.error("An error occurred during login:", error);
+      // Handle unexpected errors
+    }
   }
- 
-  onPasswordChangeHandler(event) {
-    this.setState(() => {
-      return {
-        password: event.target.value
-      };
-    });
-  }
- 
-  onSubmitHandler(event) {
-    event.preventDefault();
- 
-    this.props.login({
-      email: this.state.email,
-      password: this.state.password,
-    });
-  }
- 
-  render() {
-    return (
-      <form onSubmit={this.onSubmitHandler} className='login-input'>
-        <input type="email" placeholder='Email' value={this.state.email} onChange={this.onEmailChangeHandler} />
-        <input type="password" placeholder='Password' value={this.state.password} onChange={this.onPasswordChangeHandler} />
-        <button>Masuk</button>
-      </form>
-    );
-  }
-}
- 
-LoginInput.propTypes = {
-  login: PropTypes.func.isRequired,
+
+  return (
+    <form onSubmit={onSubmitHandler} className='login-input'>
+      <input type="email" placeholder='Email' value={email} onChange={onEmailChangeHandler} />
+      <input type="password" placeholder='Password' value={password} onChange={onPasswordChangeHandler} />
+      <button>Masuk</button>
+    </form>
+  );
 }
  
 export default LoginInput;
