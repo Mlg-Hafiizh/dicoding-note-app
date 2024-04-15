@@ -8,6 +8,7 @@ import DetailPage from '../pages/DetailPage';
 import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import { getUserLogged, putAccessToken } from '../utils/api';
+import { ThemeProvider } from '../contexts/ThemeContexts';
 
 class NoteApp extends React.Component {
   constructor(props) {
@@ -16,6 +17,16 @@ class NoteApp extends React.Component {
     this.state = {
       authedUser: null,
       initializing: false,
+      theme: localStorage.getItem('theme') || 'light',
+      toggleTheme: () => {
+        this.setState((prevState) => {
+          const newTheme = prevState.theme === 'light' ? 'dark' : 'light';
+          localStorage.setItem('theme', newTheme);
+          return {
+            theme: newTheme
+          };
+        });
+      }
     };
     
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
@@ -29,6 +40,13 @@ class NoteApp extends React.Component {
         authedUser: data,
       };
     });
+    document.documentElement.setAttribute('data-theme', this.state.theme);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.theme !== this.state.theme) {
+      document.documentElement.setAttribute('data-theme', this.state.theme);
+    }
   }
   
   async onLoginSuccess({ accessToken }) {
@@ -72,20 +90,22 @@ class NoteApp extends React.Component {
     }
     
     return (
-      <div className="note-app">
-        <header className='note-app__header'>
-          <h1>Aplikasi Catatan</h1>
-          <Navigation logout={this.onLogout} name={this.state.authedUser.name} />
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/add" element={<AddPage />} />
-            <Route path="/archive" element={<ArchivePage />} />
-            <Route path="/detail/:id" element={<DetailPage />} />
-          </Routes>
-        </main>
-      </div>
+      <ThemeProvider value={this.state}>
+        <div className="note-app">
+          <header className='note-app__header'>
+            <h1>Aplikasi Catatan</h1>
+            <Navigation logout={this.onLogout} name={this.state.authedUser.name} theme={this.state.theme} toggleTheme={this.state.toggleTheme}/>
+          </header>
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/add" element={<AddPage />} />
+              <Route path="/archive" element={<ArchivePage />} />
+              <Route path="/detail/:id" element={<DetailPage />} />
+            </Routes>
+          </main>
+        </div>
+      </ThemeProvider>
     );
   }
 }

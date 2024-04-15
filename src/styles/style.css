@@ -7,6 +7,8 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #FEFBF6;
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
 
 header {
@@ -34,13 +36,14 @@ header h1 {
 
 .navigation ul li a {
   font-size: 28px;
-  color: black;
+  color: var(--font-color);
   text-decoration: none;
   margin-bottom: 2px;
 }
 
-.navigation ul li .btn-logout {
+.navigation ul li button {
   margin-top: -3px;
+  color: var(--font-color);
 }
 
 .navigation ul li button {
@@ -58,7 +61,7 @@ header h1 {
   background-color: initial;
   border: 1px solid black;
   border-radius: 4px;
-  color: black;
+  color: var(--font-color);
   color: var(--on-background);
   font-family: Inter, sans-serif;
   margin: 16px 0;
@@ -171,7 +174,7 @@ header h1 {
   padding: 8px 0;
   width: 100%;
   cursor: pointer;
-  color: black;
+  color: var(--font-color);
 }
 
 .note-item__delete svg {
@@ -292,3 +295,9 @@ header h1 {
   border-radius: 8px;
   margin: 16px 0;
 }
+ 
+[data-theme='dark'] {
+  --font-color: #eee;
+  --background-color: #333;
+}
+ 
