@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
  
-function UnArchieveButton({ id, isArchived, onUnArchieve }) {
+function UnArchiveButton({ id, isArchived, onUnArchive }) {
   return (
     <button
-      className='note-item__archieve'
-      onClick={() => onUnArchieve(id)}
+      className='note-item__Archive'
+      onClick={() => onUnArchive(id)}
     >
       {isArchived ? 'Pindahkan' : 'Arsipkan'}
     </button>
   );
 }
 
-UnArchieveButton.propTypes = {
+UnArchiveButton.propTypes = {
   id: PropTypes.string.isRequired, 
   isArchived: PropTypes.bool.isRequired, 
-  onUnArchieve: PropTypes.func 
+  onUnArchive: PropTypes.func 
 };
  
-export default UnArchieveButton;
+export default UnArchiveButton;

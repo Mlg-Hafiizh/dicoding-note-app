@@ -24,7 +24,7 @@ export default function NotePage() {
         notes={noteToRender} 
         typeNote="active"
         onDelete={deleteNoteHandler} 
-        onArchieve={archiveNoteHandler} 
+        onArchive={archiveNoteHandler} 
       />
     </>
   )

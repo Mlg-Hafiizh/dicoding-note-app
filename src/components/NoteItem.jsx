@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NoteItemBody from './NoteItemBody';
 import DeleteButton from './DeleteButton';
-import ArchieveButton from './ArchieveButton';
-import UnArchieveButton from './UnArchieveButton';
+import ArchiveButton from './ArchiveButton';
+import UnArchiveButton from './UnArchiveButton';
 
-function NoteItem({ id, title, body, isArchived, createdAt, onDelete, onArchieve, onUnArchieve }) {
+function NoteItem({ id, title, body, isArchived, createdAt, onDelete, onArchive, onUnArchive }) {
   const createdAtDate = new Date(createdAt);
   return (
     <div className="note-item">
@@ -13,9 +13,9 @@ function NoteItem({ id, title, body, isArchived, createdAt, onDelete, onArchieve
       <div className='note-item__action'>
         <DeleteButton id={id} onDelete={onDelete} />
         {isArchived ? (
-          <UnArchieveButton id={id} isArchived={isArchived} onUnArchieve={onUnArchieve} />
+          <UnArchiveButton id={id} isArchived={isArchived} onUnArchive={onUnArchive} />
         ) : (
-          <ArchieveButton id={id} isArchived={isArchived} onArchieve={onArchieve} />
+          <ArchiveButton id={id} isArchived={isArchived} onArchive={onArchive} />
         )}
       </div>
     </div>
@@ -23,7 +23,7 @@ function NoteItem({ id, title, body, isArchived, createdAt, onDelete, onArchieve
 }
 
 NoteItem.defaultProps = {
-  onUnArchieve: () => {}
+  onUnArchive: () => {}
 };
 
 NoteItem.propTypes = {
@@ -33,8 +33,8 @@ NoteItem.propTypes = {
   isArchived: PropTypes.bool, 
   createdAt: PropTypes.string.isRequired, 
   onDelete: PropTypes.func.isRequired, 
-  onArchieve: PropTypes.func, 
-  onUnArchieve: PropTypes.func 
+  onArchive: PropTypes.func, 
+  onUnArchive: PropTypes.func 
 };
   
 export default NoteItem;

@@ -165,7 +165,7 @@ header h1 {
   padding: 10px 10px;
 }
 
-.note-item__archieve,
+.note-item__Archive,
 .note-item__delete {
   background-color: transparent;
   border: 0;
@@ -181,7 +181,7 @@ header h1 {
   color: red;
 }
 
-.note-item__archieve svg {
+.note-item__Archive svg {
   color: orange;
 }
 

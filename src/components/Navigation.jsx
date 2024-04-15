@@ -5,7 +5,7 @@ import { FiFileText, FiFilePlus, FiArchive, FiLogOut } from 'react-icons/fi';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ThemeConsumer } from '../contexts/ThemeContexts';
  
-function Navigation({ logout, name, theme, toggleTheme }) {
+function Navigation({ logout, name}) {
   return (
     <nav className="navigation">
       <ul>
