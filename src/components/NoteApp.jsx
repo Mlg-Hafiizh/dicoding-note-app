@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './Navigation';
 import HomePage from '../pages/HomePage';
+import ArchivePage from '../pages/ArchivePage';
 import AddPage from '../pages/AddPage';
 import DetailPage from '../pages/DetailPage';
 import RegisterPage from '../pages/RegisterPage';
@@ -80,6 +81,7 @@ class NoteApp extends React.Component {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/add" element={<AddPage />} />
+            <Route path="/archive" element={<ArchivePage />} />
             <Route path="/detail/:id" element={<DetailPage />} />
           </Routes>
         </main>

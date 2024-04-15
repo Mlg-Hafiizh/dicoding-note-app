@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar"
 import useNotes from "../hooks/useNotes"
 
 export default function NotePage() {
-  const { notes, deleteNoteHandler, archiveNoteHandler} = useNotes("active");
+  const { notes, deleteNoteHandler, unarchiveNoteHandler} = useNotes("archived");
   
   const [searchParams, setSearchParams] = useSearchParams()
   const [keyword, setKeyword] = useState(() => searchParams.get("keyword") || "")
@@ -22,9 +22,9 @@ export default function NotePage() {
       <SearchBar keyword={keyword} keywordChange={keywordChange} />
       <NoteList 
         notes={noteToRender} 
-        typeNote="active"
+        typeNote="archived"
         onDelete={deleteNoteHandler} 
-        onArchieve={archiveNoteHandler} 
+        onUnArchieve={unarchiveNoteHandler}
       />
     </>
   )
