@@ -10,7 +10,7 @@ function Navigation({ logout, name }) {
         <li><Link to="/"><FiFileText /> Catatan</Link></li>
         <li><Link to="/add"><FiFilePlus /> Tambah</Link></li>
         <li><Link to="/archive"><FiArchive /> Arsip</Link></li>
-        <li><button onClick={logout} className="btn-logout"><FiLogOut /></button></li>
+        <li><button onClick={logout} className="btn-logout">{name} <FiLogOut /></button></li>
       </ul>
     </nav>
   );
