@@ -296,7 +296,7 @@ header h1 {
   border-radius: 8px;
   margin: 16px 0;
 }
- 
+
 [data-theme='dark'] {
   --font-color: #eee;
   --background-color: #333;

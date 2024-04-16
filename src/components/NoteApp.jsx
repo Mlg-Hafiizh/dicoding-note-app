@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './Navigation';
 import HomePage from '../pages/HomePage';
@@ -34,21 +34,21 @@ import { AuthedUserContext } from "../contexts/AuthedUserContext";
 //     this.onLogout = this.onLogout.bind(this);
 //   }
 
-//   async componentDidMount() {
-//     const { data } = await getUserLogged();
-//     this.setState(() => {
-//       return {
-//         authedUser: data,
-//       };
-//     });
-//     document.documentElement.setAttribute('data-theme', this.state.theme);
-//   }
+  // async componentDidMount() {
+  //   const { data } = await getUserLogged();
+  //   this.setState(() => {
+  //     return {
+  //       authedUser: data,
+  //     };
+  //   });
+  //   document.documentElement.setAttribute('data-theme', this.state.theme);
+  // }
 
-//   componentDidUpdate(prevProps, prevState) {
-//     if (prevState.theme !== this.state.theme) {
-//       document.documentElement.setAttribute('data-theme', this.state.theme);
-//     }
-//   }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.theme !== this.state.theme) {
+  //     document.documentElement.setAttribute('data-theme', this.state.theme);
+  //   }
+  // }
   
 //   async onLoginSuccess({ accessToken }) {
 //     putAccessToken(accessToken);
@@ -114,16 +114,14 @@ import { AuthedUserContext } from "../contexts/AuthedUserContext";
 const NotesApp = () => {
   const { authedUser, setAuthedUser } = useContext(AuthedUserContext);
   const { clearAuthedUser } = useContext(AuthedUserContext);
-  const theme = localStorage.getItem('theme') || 'light';
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
   const toggleTheme = () => {
-            this.setState((prevState) => {
-              const newTheme = prevState.theme === 'light' ? 'dark' : 'light';
-              localStorage.setItem('theme', newTheme);
-              return {
-                theme: newTheme
-              };
-            });
-          };
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === "light" ? "dark" : "light"
+      localStorage.setItem("theme", newTheme)
+      return newTheme
+    })
+  };
 
   useEffect(() => {
     const authUser = async () => {
@@ -133,6 +131,10 @@ const NotesApp = () => {
 
     authUser()
   }, [])
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   if (!authedUser) {
     return (
