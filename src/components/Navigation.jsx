@@ -5,7 +5,7 @@ import { FiFileText, FiFilePlus, FiArchive, FiLogOut } from 'react-icons/fi';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ThemeConsumer } from '../contexts/ThemeContexts';
  
-function Navigation({ logout, name, theme, toggleTheme}) {
+function Navigation({ logout, name, toggleTheme}) {
   return (
     <nav className="navigation">
       <ul>
@@ -18,7 +18,6 @@ function Navigation({ logout, name, theme, toggleTheme}) {
               <button onClick={toggleTheme}>{theme === 'light' ? <FaMoon /> : <FaSun />}</button>
             )}
           </ThemeConsumer>
-          {/* <button onClick={toggleTheme}>{theme === 'light' ? <FaMoon /> : <FaSun />}</button> */}
         </li>
         <li><button onClick={logout} className="btn-logout">{name} <FiLogOut /></button></li>
       </ul>
@@ -29,6 +28,7 @@ function Navigation({ logout, name, theme, toggleTheme}) {
 Navigation.propTypes = {
   logout: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
 };
  
 export default Navigation;

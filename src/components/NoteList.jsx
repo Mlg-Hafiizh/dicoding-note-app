@@ -54,6 +54,7 @@ NoteLists.propTypes = {
     body: PropTypes.string.isRequired,
     archived: PropTypes.bool.isRequired,
   })).isRequired, 
+  typeNote : PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired, 
   onArchive: PropTypes.func, 
   onUnArchive: PropTypes.func 
